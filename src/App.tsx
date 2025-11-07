@@ -1,18 +1,18 @@
 
 import { useTranslation } from 'react-i18next';
 import './App.css'
+import AppRouter from '../src/config/router/appRouter';
+import './config/theme/useTheme.scss'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login/Login';
+import { Suspense } from 'react';
 
 function App() {
-  const { t, i18n } = useTranslation();
-
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'en'? 'vn':'en')
-  }
   return (
-    <div>
-      <button onClick={toggleLanguage}>click</button>
-      {t('Welcome to React')}
-    </div>
+    <Suspense fallback='...loading'>
+      <AppRouter />
+    </Suspense>
+
   )
 }
 

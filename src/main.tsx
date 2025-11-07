@@ -3,11 +3,15 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import './i18n.ts'
+import Provider from './config/provider/provider.tsx'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense fallback="loading">
-      <App />
-    </Suspense>
-  </StrictMode>,
+      <BrowserRouter>
+          <Provider>
+            <App />
+          </Provider>
+      </BrowserRouter>
+    </StrictMode>,
 )
